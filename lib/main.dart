@@ -1,29 +1,33 @@
+import 'package:afrofood/Pages/menujour.dart';
+import 'package:afrofood/Pages/panier.dart';
+import 'package:afrofood/Pages/plat.dart';
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
+import 'pages/accueil.dart';
 
 void main() {
-  runApp(const AfroFoodApp());
+  runApp(const MyApp());
 }
 
-class AfroFoodApp extends StatelessWidget {
-  const AfroFoodApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'AfroFood Express',
       debugShowCheckedModeBanner: false,
+      title: 'AfroFood',
       theme: ThemeData(
-        primaryColor: const Color(0xFFEA580C),
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFFEA580C),
-          primary: const Color(0xFFEA580C),
-          secondary: const Color(0xFFDC2626),
-        ),
-        useMaterial3: true,
-        fontFamily: 'Inter',
+        primarySwatch: Colors.green,
       ),
-      home: const HomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const Accueil(),
+        '/menu':(context)=> menujour(),
+        '/plat':(context)=>Plats(),
+        '/panier':(context)=>PanierPage(),
+
+        // '/login': (context) => const Login(), // si tu veux ajouter une page login
+      },
     );
   }
 }
